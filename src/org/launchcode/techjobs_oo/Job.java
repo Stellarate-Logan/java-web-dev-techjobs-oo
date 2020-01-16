@@ -19,6 +19,40 @@ public class Job {
         nextId++;
     }
 
+    //  other five fields. The second constructor should also call the first in order to initialize
+    //  the 'id' field.
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
+    }
+
+    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    //  match.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+    //  and id.
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -55,53 +89,46 @@ public class Job {
         return coreCompetency;
     }
 
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
+   public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
-        this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
-    }
-
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id &&
-                Objects.equals(name, job.name) &&
-                Objects.equals(employer, job.employer) &&
-                Objects.equals(location, job.location) &&
-                Objects.equals(positionType, job.positionType) &&
-                Objects.equals(coreCompetency, job.coreCompetency);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
-    }
 
     @Override
     public String toString() {
-        return super.toString();
+        String toStringData ="\n" + "ID: " + getId() + "\n";
 
+
+        if (name.isBlank()){
+            toStringData += "Name: Data not available" + "\n" ;
+        }else {
+            toStringData += "Name: " + name + "\n";
+        }
+
+        if (employer.getValue().isBlank()){
+            toStringData += "Employer: Data not available" + "\n";
+        } else {
+            toStringData += "Employer: " + employer.getValue() + "\n";
+        }
+
+        if (location.getValue().isBlank()){
+            toStringData += "Location: Data not available" + "\n";
+        }else {
+            toStringData += "Location: " + location.getValue() + "\n";
+        }
+
+        if (positionType.getValue().isBlank()){
+            toStringData += "Position Type: Data not available" + "\n";
+        }else {
+            toStringData += "Position Type: " + positionType.getValue() + "\n";
+        }
+
+        if (coreCompetency.getValue().isBlank()){
+            toStringData += "Core Competency: Data not available" + "\n";
+        }else {
+            toStringData += "Core Competency: " + coreCompetency.getValue() + "\n";
+        }
+
+        return toStringData;
     }
-
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
-
-}
+    }

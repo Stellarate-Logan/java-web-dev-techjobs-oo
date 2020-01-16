@@ -1,7 +1,6 @@
 package JobTest;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
@@ -29,24 +28,9 @@ public class JobTest {
     }
     @Test
     public void testJobConstructorSetAllFields() {
-        Job job1;
-        Job job2;
-
-        job1 = new Job();
-
-        job2 = new Job();
 
         Job job_test3;
         job_test3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
-                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        Job job_test4;
-        job_test4 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
-                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        Job job_test5;
-        job_test5 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
-                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        Job job_test6;
-        job_test6 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 
         assertTrue(job_test3 instanceof Job);
@@ -69,12 +53,32 @@ public class JobTest {
         Job job_test4 = new Job();
         assertNotEquals(job_test3, job_test4);
     }
-    //@Test
-   /* public void testJobsForToString() {
-        String blank = "_";
-        if (new Job()) {
+    @Test
+    public void testToString() {
+        Job job_testid2;
+        Job job_testid1;
+        job_testid1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 
-        }
+        job_testid2 = new Job("", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        assertThat("\n" +
+                "ID: " + job_testid1.getId() + "\n" +
+                "Name: " + job_testid1.getName() + "\n" +
+                "Employer: " + job_testid1.getEmployer() + "\n" +
+                "Location: " + job_testid1.getLocation()+ "\n" +
+                "Position Type: " + job_testid1.getPositionType().getValue() + "\n" +
+                "Core Competency: " + job_testid1.getCoreCompetency() + "\n",is(job_testid1.toString())
+        );
 
-    }*/
+        assertThat("\n" +
+                        "ID: " + job_testid2.getId() + "\n" +
+                        "Name: " + "Data not available" + "\n" +
+                        "Employer: " + job_testid2.getEmployer() + "\n" +
+                        "Location: " + job_testid2.getLocation()+ "\n" +
+                        "Position Type: " + job_testid2.getPositionType().getValue() + "\n" +
+                        "Core Competency: " + job_testid2.getCoreCompetency() + "\n",
+                is(job_testid2.toString()));
+
+    }
 }
