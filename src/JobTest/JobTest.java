@@ -65,12 +65,16 @@ public class JobTest {
     }
     @Test
     public void testJobsForEquality() {
-        //Job job_test3;
-        //Job job_test4;
-        //assertNotEquals(job_test3, job_test4);
+        Job job_test3 = new Job();
+        Job job_test4 = new Job();
+        assertNotEquals(job_test3, job_test4);
     }
-    @Test
-    public void testJobsForToString() {
+    //@Test
+   /* public void testJobsForToString() {
+        String blank = "_";
+        if (new Job()) {
 
-    }
+        }
+
+    }*/
 }
