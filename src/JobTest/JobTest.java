@@ -1,6 +1,6 @@
 package JobTest;
 
-import org.junit.Assert;
+import org.junit.Assert.*;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
@@ -34,11 +34,11 @@ public class JobTest {
                 new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 
         assertTrue(job_test3 instanceof Job);
-        Assert.assertTrue(job_test3.getName() != null);
-        Assert.assertTrue(job_test3.getEmployer() != null);
-        Assert.assertTrue(job_test3.getLocation() != null);
-        Assert.assertTrue(job_test3.getPositionType() != null);
-        Assert.assertTrue(job_test3.getCoreCompetency() != null);
+        assertTrue(job_test3.getName() != null);
+        assertTrue(job_test3.getEmployer() != null);
+        assertTrue(job_test3.getLocation() != null);
+        assertTrue(job_test3.getPositionType() != null);
+        assertTrue(job_test3.getCoreCompetency() != null);
 
         assertThat("Product Tester", is(job_test3.getName()));
         assertThat("ACME", is(job_test3.getEmployer().getValue()));

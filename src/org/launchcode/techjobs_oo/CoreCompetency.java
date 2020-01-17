@@ -8,10 +8,10 @@ public class CoreCompetency extends JobField {
 
     }
 
-    public boolean equals(Object o) {
+    /*public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CoreCompetency)) return false;
         CoreCompetency that = (CoreCompetency) o;
         return id == that.id;
-    }
+    }*/
 }
